@@ -20,7 +20,6 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.math.FlxRandom;
 import flixel.addons.transition.FlxTransitionableState;
-import io.newgrounds.NG;
 import lime.app.Application;
 import flixel.math.FlxPoint;
 import flixel.math.FlxMath;
@@ -45,9 +44,9 @@ class MainMenuState extends MusicBeatState
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
-	var creditsLayer1:FlxTypedGroup<CreditIcon>;
-	var creditsLayer2:FlxTypedGroup<CreditIcon>;
-	var creditsLayer3:FlxTypedGroup<CreditIcon>;
+	var creditsLayer1:FlxTypedGroup<CreditsState>;
+	var creditsLayer2:FlxTypedGroup<CreditsState>;
+	var creditsLayer3:FlxTypedGroup<CreditsState>;
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
 	public static var firstStart:Bool = true;
@@ -55,6 +54,7 @@ class MainMenuState extends MusicBeatState
 	public static var nightly:String = "";
 
 	public static var kadeEngineVer:String = "1.5.1" + nightly;
+	public static var psychEngineVersion:String = '0.6.0'; //This is also used for Discord RPC
 	public static var gameVer:String = "0.2.7.1";
 	public static var showRon:Bool = false;
 	public static var firsttimeBob:Bool = false;
@@ -324,11 +324,11 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<MenuItem>();
 		add(menuItems);
 
-		creditsLayer1 = new FlxTypedGroup<CreditIcon>();
+		creditsLayer1 = new FlxTypedGroup<CreditsState>();
 		add(creditsLayer1);
-		creditsLayer2 = new FlxTypedGroup<CreditIcon>();
+		creditsLayer2 = new FlxTypedGroup<CreditsState>();
 		add(creditsLayer2);
-		creditsLayer3 = new FlxTypedGroup<CreditIcon>();
+		creditsLayer3 = new FlxTypedGroup<CreditsState>();
 		add(creditsLayer3);
 		inCredits = true;
 		for (i in grpBackgrounds) {
